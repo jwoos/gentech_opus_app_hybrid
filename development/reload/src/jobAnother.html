@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">	
+	<head>
+				<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+				<script>
+				function window$forge$_receive(result) {
+					try {
+						window.forge._receive(JSON.parse(result));
+					} catch (e) {
+						forge.logging.error("window$forge$_receive -> " + e);
+					}
+				}
+			</script><script src='../forge/app_config.js'></script><script src='../forge/all.js'></script>
+		<script src="//www.parsecdn.com/js/parse-1.2.19.min.js"></script>
+		<meta charset="utf-8">
+		<script src="js/jquery-2.0.2.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<script src="js/parse.js"></script>
+		<script src="js/parseCode.js"></script>
+		<script src="js/main.js"></script>
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<link href='http://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>
+		<style type="text/css">
+			.container-narrow {
+				margin: 0 auto;
+				max-width: 700px;
+				padding: 20px;
+			}
+			.container-narrow > hr {
+				margin: 30px 0;
+			}
+
+			.jumbotron {
+				margin: 60px 0;
+				text-align: center;
+			}
+			.jumbotron h1 {
+				font-size: 50px;
+				line-height: 1;
+			}
+
+			p {
+				font-size: 1.2em;
+			}
+			body{
+				background-color: #404040;
+				font-family: "Roboto";
+			}
+			.lead{
+				color: white;
+			}
+			.span12{
+				color:white;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="jumbotron">
+			<h1 style="color:#006ccc">Job Experience</h1>
+			<p class="lead">What have you got for your resume?</p>
+			<p><font color='white' size='7'>Add another Job</font></p>
+			<hr>
+			<br>
+			<form> 
+				<p><font color='white' size='4'>Job Date</font></p>
+				<input type="text" placeholder="Ex. January 2014" id='jobDate'>
+			</form>
+			<form> 
+				<p><font color='white' size='4'>Job Name</font></p>
+				<input type="text" placeholder="Ex. Campaign Office" id='jobName'>
+			</form>
+			<p><font color='white' size='4'>Job Description</font></p>
+			<textarea rows="4" cols="50" placeholder="Add Description" id='jobDescript'></textarea>
+
+			<div align="center">
+				<a class="btn btn-primary btn-large" onclick="submitEx();">Done</a>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="jobExperience.html" class="btn btn-primary btn-large" >Cancel</a>
+				<br>
+				<br>
+				<a class="btn btn-primary btn-large" onclick="submitExMore();" >Add Another</a>
+			</div>
+		</div>
+	</body>
+</html> 

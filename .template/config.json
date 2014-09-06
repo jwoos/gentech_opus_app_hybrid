@@ -1,0 +1,71 @@
+{
+	"config_version": "4",
+	"name": "opus app",
+	"author": "shin.junwoo97@gmail.com",
+	"version": "0.1",
+	"platform_version": "v2.1.9",
+	"description": "OPUS APP",
+	"core": {
+		"general": {
+			"logging": {
+				"level": "DEBUG"
+			},
+			"reload": true
+		}
+	},
+	"modules": {
+		"quickblox": {
+			"version": "0.7"
+		},
+		"topbar": {
+			"version": "2.4"
+		},
+		"display": {
+			"version": "2.3",
+			"config": {
+				"orientations": {
+					"ipad": "any",
+					"android": "portrait",
+					"iphone": "any"
+				}
+			}
+		},
+		"file": {
+			"version": "2.4"
+		},
+		"geolocation": {
+			"version": "2.0"
+		},
+		"icons": {
+			"version": "2.3",
+			"config": {
+				"android": {
+					"36": "img/logo strong.png",
+					"48": "img/logo strong.png",
+					"72": "img/logo strong.png",
+					"96": "img/OPUS Logo Transparent Logo 2.png",
+					"144": "img/OPUS Logo Transparent Logo 2.png"
+				}
+			}
+		},
+		"launchimage": {
+			"version": "2.4",
+			"config": {
+				"android": "img/lsportrait.png",
+				"android-landscape": "img/lslandscape.png",
+				"background-color": "#000000",
+				"background-size": "cover"
+			}
+		},
+		"parse": {
+			"version": "2.2",
+			"config": {
+				"clientKey": "iwobPKxUwKJzbK3XAiQsBcfRQNWJ678smvKqueip",
+				"applicationId": "TPf2kF11biPfcF5yIrEKqw6rTRxjFRibGgSKy73A"
+			}
+		},
+		"tabbar": {
+			"version": "2.4"
+		}
+	}
+}

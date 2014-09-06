@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>OPUS</title>
+    <meta name="description" content="">
+    <meta name="author" content="ink, cookbook, recipes">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    <!-- Place favicon.ico and apple-touch-icon(s) here  -->
+	<link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" href="img/touch-icon.57.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/touch-icon.72.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/touch-icon.114.png">
+    <link rel="apple-touch-startup-image" href="img/splash.320x460.png" media="screen and (min-device-width: 200px) and (max-device-width: 320px) and (orientation:portrait)">
+    <link rel="apple-touch-startup-image" href="img/splash.768x1004.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)">
+    <link rel="apple-touch-startup-image" href="img/splash.1024x748.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)">
+
+    <!-- load inks CSS -->
+    <link rel="stylesheet" type="text/css" href="css/ink-flex.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+
+	<!-- JS files for backend functionality -->
+	<script type="text/javascript" src="js/opus/jquery-2.0.2.js"></script>
+	<script type="text/javascript" src="js/opus/parse.js"></script>
+	<script type="text/javascript" src="js/opus/parseCode.js"></script>
+	<script type="text/javascript" src="js/opus/main.js"></script>
+	<script type='text/javascript' src="js/opus/push_notifs.js"></script>
+
+    <!-- test browser flexbox support and load legacy grid if unsupported -->
+    <script type="text/javascript" src="js/modernizr.js"></script>
+    <script type="text/javascript">
+        Modernizr.load({
+            test: Modernizr.flexbox,
+            nope : 'css/ink-legacy.min.css'
+            });
+    </script>
+
+    <!-- load inks javascript files -->
+    <script type="text/javascript" src="js/holder.js"></script>
+    <script type="text/javascript" src="js/ink-all.min.js"></script>
+    <script type="text/javascript" src="js/autoload.js"></script>
+
+    <style type="text/css">
+        body {
+            background: #ededed;
+			font-family: "Roboto";
+        }
+		p {
+			font-size: 1.2em;
+		}
+        header h1 small:before  {
+            content: "|";
+            margin: 0 0.5em;
+            font-size: 1.6em;
+        }
+        footer {
+            background: #ccc;
+        }
+		.container-narrow {
+			margin: 0 auto;
+			max-width: 700px;
+			padding: 20px;
+		}
+		.container-narrow > hr {
+			margin: 30px 0;
+		}
+    </style>
+	
+	<script> 
+		forge.topbar.show() 
+		
+		forge.topbar.addButton({
+		text: "Cancel",
+		position: "left"
+		}, function () {
+		window.location.assign("studentprofile.html");
+		forge.topbar.removeButtons();
+		forge.tabbar.removeButtons();
+		}); 
+
+		forge.topbar.addButton({
+		text: "Save",
+		position: "right"
+		}, function () {
+		edit();
+		forge.topbar.removeButtons();
+		forge.tabbar.removeButtons();
+		});
+		forge.tabbar.hide()
+	</script>
+	
+</head>
+
+<body>
+	<div class="container-narrow">
+	
+		<div class="ink-grid">
+			<div class="all-100 align-center">
+				<img src="img/avatar.png" alt="avatarimg" id="profilePhoto">
+				<figcaption class="dark">
+					<a id="select">Select Image</a>
+				</figcaption>
+			</div>
+		</div>
+		
+		<br>
+		
+		<div class="ink-grid">
+			<div class="all-100">
+				<form class="ink-form">
+					<div class="control-group column-group half-gutters">
+						<label for="Name" class="all-25 align-right">Name</label>
+						<div class="control all-35">
+							<input type="text" id="firstName" placeholder="first name">
+						</div>
+						<div class="control all-35">
+							<input type="text" id="lastName" placeholder="last name">
+						</div>
+						
+						
+						<label for="phone" class="all-25 align-right">Phone number</label>
+						<div class="control all-50 align-center">
+							<input type="number" id="phone" placeholder="phone number">
+						</div>
+						<div class="all-25">
+						</div>
+						
+						<label for="email" class="all-25 align-right">Email</label>
+						<div class="control all-75 align-center">
+							<input type="email" id="email" placeholder="email">
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	
+		<div class="column-group">
+			<div class="all-25" style="background-color:#3498db">
+				<h5 style="color:#95a5a6;padding-left:5px"> ABOUT ME </h5>
+			</div>
+			<div class="all-75" style="background-color:white">
+				<form class="ink-form">
+					<textarea class="all-100" id="about" style="padding-left:5px"></textarea>
+				</form>
+			</div>
+		</div>
+		
+		<hr>
+		
+		<div class="all-100 align-center">
+			<h3> Push notification settings </h3>
+		</div>
+		
+		<!-- displays channels that the device is subscribed to-->
+		<div class="column-group">
+			<div class="all-35" style="background-color:white">
+				<h5> Subscribed </h5>
+			</div>
+				
+			<div class="all-65" style="background-color:#1abc9c">
+				<p class="all-100" id="subscribed"> </p>
+			</div>
+		</div>
+		
+		<br>
+		
+		<div class="all-100">
+			<p> Get notifications by types of job! </p>
+		</div>
+		
+		<div class="column-group">
+			<div class="all-40">
+			<form class="ink-form"> 
+				<input class="all-90" type="text" placeholder="types" id="subscribeto">
+			</form>
+			</div>
+					
+			<div class="all-60">
+				<div class="button-group" style="padding-left:10px">
+					<a class="ink-button all-50" onclick="subscribe()">Notify!</a>
+					<a class="ink-button all-50" onclick="unsubscribe()">Stop!</a>
+				</div>
+			</div>
+		</div>
+		
+			<hr>
+		
+		<div class="column-group">
+			<div class="all-35">
+			<h4> Monday </h4>
+			</div>	
+			<div class="all-65">
+				<div class="button-group">
+					<a class="ink-button all-50" onclick="mondaySubscribe()">Notify!</a>
+					<a class="ink-button all-50" onclick="mondayStop()">Stop!</a>
+				</div>
+			</div>
+			
+			<div class="all-35">
+			<h4> Tuesday </h4>
+			</div>
+			<div class="all-65">
+				<div class="button-group">
+					<a class="ink-button all-50" onclick="tuesdaySubscribe()">Notify!</a>
+					<a class="ink-button all-50" onclick="tuesdayStop()">Stop!</a>
+				</div>
+			</div>
+			
+			<div class="all-35">
+			<h4> Wednesday </h4>
+			</div>
+			<div class="all-65">
+				<div class="button-group">
+					<a class="ink-button all-50" onclick="wednesdaySubscribe()">Notify!</a>
+					<a class="ink-button all-50" onclick="wednesdayStop()">Stop!</a>
+				</div>
+			</div>
+			
+			<div class="all-35">
+			<h4> Thursday </h4>
+			</div>
+			<div class="all-65">
+				<div class="button-group">
+					<a class="ink-button all-50" onclick="thursdaySubscribe()">Notify!</a>
+					<a class="ink-button all-50" onclick="thursdayStop()">Stop!</a>
+				</div>
+			</div>
+			
+			<div class="all-35">
+			<h4> Friday </h4>
+			</div>
+			<div class="all-65">
+				<div class="button-group">
+					<a class="ink-button all-50" onclick="fridaySubscribe()">Notify!</a>
+					<a class="ink-button all-50" onclick="fridayStop()">Stop!</a>
+				</div>
+			</div>
+			
+			<div class="all-35">
+			<h4> Saturday </h4>
+			</div>
+			<div class="all-65">
+				<div class="button-group">
+					<a class="ink-button all-50" onclick="saturdaySubscribe()">Notify!</a>
+					<a class="ink-button all-50" onclick="saturdayStop()">Stop!</a>
+				</div>
+			</div>
+			
+			<div class="all-35">
+			<h4> Sunday </h4>
+			</div>
+			<div class="all-65">
+				<div class="button-group">
+					<a class="ink-button all-50" onclick="sundaySubscribe()">Notify!</a>
+					<a class="ink-button all-50" onclick="sundayStop()">Stop!</a>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	
+	<script> 
+				//Displays photo on phone for review
+					function displayPic(file)
+					{
+						forge.file.URL(file, function (url) {
+							$('#profilePhoto').attr('src', url);
+							convert64(file);
+						});
+					}
+
+				//Convert file to base64 for upload to parse
+					var globalString2;
+					function convert64(file)
+					{
+						forge.file.base64(
+							file, //1st param
+							function (base64String)//2nd param
+							{
+								globalString2 = base64String;
+							},
+							function (error)//3rd param
+							{
+								alert('No 64 String');
+							}
+						);
+					}
+
+					var picProp = {
+						width: 500,
+						height: 500
+					};
+
+					$("#select").click(
+						function()
+						{
+							change = true;
+							forge.file.getImage
+							(
+								picProp, //1st param
+								function (file) //2nd param
+								{	
+									displayPic(file);
+								},
+								function (error) //3rd param
+								{
+									alert('Click Error: ' + error);
+								}
+							);
+						}	
+					)
+
+					function edit()
+					{
+					    var user = Parse.User.current();
+
+					    var firstName = document.getElementById('firstName').value;
+					    var lastName = document.getElementById('lastName').value;
+
+					    var phone = document.getElementById('phone').value;
+					        phone = parseInt(phone);
+
+					    var email = document.getElementById('email').value;
+					    var aboutMe = document.getElementById('about').value;
+
+					    if(change){
+						    // START Profile Picture upload
+						    var fileData = {base64: globalString2};
+						    var parsePicture= new Parse.File('photo.jpg', fileData, 'image/jpg');
+
+						    parsePicture.save().then(function() {
+						        //alert('File saved to parsePicture!'); 
+						    }, function(error) {
+						        alert('Could not save parsePic: ' + error);
+						    });
+						}
+
+					 	user.save(null, {
+					    success: function(user) {
+					        user.set("firstName", firstName);
+					        user.set("lastName", lastName);
+					        user.set("phone", phone);
+					        user.set("username", email);
+					        user.set("email", email);
+					        user.set("about", aboutMe);
+
+					        if(change){
+					        	user.set("profilePic", parsePicture);
+					    	}
+
+					        user.save();
+					        window.location.assign('studentprofile.html');
+					        }
+					    });
+					}
+
+					var change;
+					window.onload = function()
+					{
+						change = false;
+						loadEdit();
+					}
+
+					</script>
+	
+</body>
+
+</html>

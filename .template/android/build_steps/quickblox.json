@@ -1,0 +1,15 @@
+[
+    {
+            "do": {
+                "android_add_permission": {
+                    "permission": "android.permission.CAMERA",
+                    "permission": "android.permission.INTERNET",
+                    "permission": "android.permission.RECORD_AUDIO",
+                    "permission": "android.permission.WAKE_LOCK",
+                    "permission": "android.permission.MODIFY_AUDIO_SETTINGS",
+                    "permission": "android.permission.camera",
+                    "permission": "android.permission.autofocus"
+                }
+            }
+    }
+]
