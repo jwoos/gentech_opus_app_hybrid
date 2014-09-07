@@ -15,24 +15,38 @@ forge.topbar.setTint(color3);
 forge.tabbar.setTint(color2);
 
 forge.tabbar.addButton({
-  icon: "img/job_icon.png",
-  text: "Jobs"
-}, function (button) {
-  button.onPressed.addListener(function () {
-    window.location="jobs.html";
-	forge.tabbar.removeButtons();
-	forge.topbar.removeButtons();
-  });
-});
-
-forge.tabbar.addButton({
   icon: "img/prof_icon.png",
   text: "Profile"
 }, function (button) {
   button.onPressed.addListener(function () {
-    window.location="studentprofile.html";
+    window.location.assign("studentprofile.html");
 	forge.tabbar.removeButtons();
 	forge.topbar.removeButtons();
+	forge.tabbar.setActive(color1);
+  });
+});
+
+forge.tabbar.addButton({
+  icon: "img/job_icon.png",
+  text: "Jobs"
+}, function (button) {
+  button.onPressed.addListener(function () {
+    window.location.assign("jobs.html");
+	forge.tabbar.removeButtons();
+	forge.topbar.removeButtons();
+	forge.tabbar.setActive(color1);
+  });
+});
+
+forge.tabbar.addButton({
+  icon: "img/alpha.png",
+  text: "Map"
+}, function (button) {
+  button.onPressed.addListener(function () {
+    window.location.assign("map.html");
+	forge.tabbar.removeButtons();
+	forge.topbar.removeButtons();
+	forge.tabbar.setActive(color1);
   });
 });
 

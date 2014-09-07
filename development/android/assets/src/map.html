@@ -52,22 +52,54 @@
       })(marker, i));
     }
   </script>
-  
-  <script> 
-	forge.display.orientation.forcePortrait();
-	forge.topbar.show(); 
-	forge.tabbar.hide();
-	
-	forge.topbar.addButton({
-	text: "Back",
-	position: "left"
-	}, function () {
-	window.location= "jobs.html";  
-	forge.topbar.removeButtons();
-	forge.tabbar.show();
+
+	<script> 
+		forge.tabbar.show();
+		
+		var color1 = [0,108,204,255];
+var color2 = [0,0,0,255];
+var color3 = [127, 140, 141, 255];
+
+		
+		forge.tabbar.setTint(color2);
+
+forge.tabbar.addButton({
+  icon: "img/prof_icon.png",
+  text: "Profile"
+}, function (button) {
+  button.onPressed.addListener(function () {
+    window.location.assign("studentprofile.html");
 	forge.tabbar.removeButtons();
-	});
-	
+	forge.topbar.removeButtons();
+	forge.tabbar.setActive(color1);
+  });
+});
+
+forge.tabbar.addButton({
+  icon: "img/job_icon.png",
+  text: "Jobs"
+}, function (button) {
+  button.onPressed.addListener(function () {
+    window.location.assign("jobs.html");
+	forge.tabbar.removeButtons();
+	forge.topbar.removeButtons();
+	forge.tabbar.setActive(color1);
+  });
+});
+
+forge.tabbar.addButton({
+  icon: "img/alpha.png",
+  text: "Map"
+}, function (button) {
+  button.onPressed.addListener(function () {
+    window.location.assign("map.html");
+	forge.tabbar.removeButtons();
+	forge.topbar.removeButtons();
+	forge.tabbar.setActive(color1);
+  });
+});
+		
+		forge.topbar.hide();
 	</script>
 </body>
 </html>

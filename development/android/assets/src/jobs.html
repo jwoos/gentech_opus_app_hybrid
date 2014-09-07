@@ -76,17 +76,8 @@
     </style>
 	
 	<script>
-		forge.topbar.show();
 		forge.tabbar.show();
-		forge.topbar.addButton({
-		text: "Maps",
-		position: "right"
-		}, function () {
-			window.location= "map.html";  
-			forge.topbar.removeButtons();
-		});
-		
-		forge.display.orientation.forceLandscape();
+		forge.topbar.hide();
 	</script>
 	
 </head>
@@ -98,7 +89,6 @@
 		</div>
 		
 		<div class="all-75">
-		<form class="ink-form">
 			<table class="ink-table alternating all-50" id="table2">
 				<thead>
 					<th class="align-left"> Type </th>
@@ -110,8 +100,8 @@
 					
 				<tbody>			
 				</tbody>
+				
 			</table>
-		</form> 
 		</div>
 	</div>
 </body>
