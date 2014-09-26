@@ -2,7 +2,7 @@
 	"config_version": "4",
 	"name": "OPUS",
 	"author": "shin.junwoo97@gmail.com",
-	"version": "1.1",
+	"version": "1.2",
 	"platform_version": "v2.1.9",
 	"description": "OPUS APP",
 	"core": {

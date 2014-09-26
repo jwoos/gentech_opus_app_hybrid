@@ -83,6 +83,16 @@
 		.container-narrow > hr {
 			margin: 30px 0;
 		}
+		input {
+			width: 90%;
+			float: left;
+			clear: none;
+		}
+		select { 
+			width:90%;
+			float: left;
+			clear: none;
+		}
     </style>
 	
 	<script>
@@ -98,13 +108,14 @@
 			<h1> Jobs </h1>
 		</div>
 		
-		<div class="all-75">
-			<table class="ink-table alternating all-50" id="table2">
+		<div class="all-25">
+			<form class="ink-form">
+			<table class="ink-table alternating all-100" id="table2">
 				<thead>
-					<th class="align-left"> Type </th>
-					<th class="align-left"> Company </th>
+					<th class="align-left all-5"> Type </th>
+					<th class="align-left all-10"> Company </th>
 					<th class="align-left"> Date </th>
-					<th class="align-left"> Pay per hour </th>
+					<th class="align-left"> Pay </th>
 					<th class="align-left"> Apply </th>
 				</thead>
 					
@@ -112,7 +123,9 @@
 				</tbody>
 				
 			</table>
+		</form>
 		</div>
+		
 	</div>
 </body>
 </html>

@@ -1,17 +1,22 @@
 {
-	"general": {},
-	"ios": {
-		"profiles": {
-			"DEFAULT": {}
-		},
-		"simulatorsdk": "8.0",
-		"simulatorfamily": "iphone",
-		"simulatorvariant": "default"
-	},
 	"android": {
 		"profiles": {
-			"DEFAULT": {}
+			"DEFAULT": {
+				"keystore": "C:/Users/NFTE/forge-workspace/opus-app/src/opus.keystore",
+				"keypass": "opusmeanswork",
+				"keyalias": "opus",
+				"storepass": "opusmeanswork"
+			}
 		},
 		"sdk": "C:/adt/sdk/"
-	}
+	},
+	"ios": {
+		"simulatorvariant": "default",
+		"simulatorsdk": "8.0",
+		"simulatorfamily": "iphone",
+		"profiles": {
+			"DEFAULT": {}
+		}
+	},
+	"general": {}
 }

@@ -1,6 +1,6 @@
 window.forge = {}; window.forge.config = {
     "author": "shin.junwoo97@gmail.com", 
-    "config_hash": "67b21757ab34536ed92d5101a907edcc88b74972", 
+    "config_hash": "d0c795350effaa31f96599d050a368e4efca4060", 
     "config_version": "4", 
     "core": {
         "android": {
@@ -88,7 +88,7 @@ window.forge = {}; window.forge.config = {
     "platform_version": "v2.1.9", 
     "trigger_domain": "https://trigger.io", 
     "uuid": "cab354d834a811e4b77d1231392b77b0", 
-    "version": "1.1"
+    "version": "1.2"
 }; window.forge.module_mapping = {
     "display": "display", 
     "file": "file", 

@@ -186,7 +186,7 @@ function logIn()
 
     Parse.User.logIn(email, password, {
       success: function(user) {
-        window.location.assign('jobs.html');
+        window.location.assign('map.html');
         gloEmail = 'Global Test';
          // Do stuff after successful login.
         },
