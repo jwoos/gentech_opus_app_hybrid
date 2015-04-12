@@ -1,3 +1,3 @@
-OPUS
+<h1> OPUS hybrid application </h1>
 
-This is the OPUS application for students. They can make a profile, browse jobs, and so on.
+<p> made during gentech </p>
